@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, NavLink } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 
 const NavBar = () => {
@@ -11,9 +11,9 @@ const NavBar = () => {
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav>
-                            <Nav.Link>Ofertas</Nav.Link>
-                            <Nav.Link>Productos Destacados</Nav.Link>
-                            <Nav.Link>Catalogo</Nav.Link>
+                            <NavLink to='/'>Inicio</NavLink>
+                            <NavLink to='category/exterior'>Exterior</NavLink>
+                            <NavLink to='category/interior'>Interior</NavLink>
                         </Nav>
                         <Nav.Link className='ms-auto'>
                             <CartWidget />
@@ -26,3 +26,7 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+{
+    /* className={(isActive = isActive ? "clase1" : "clase2") */
+}
