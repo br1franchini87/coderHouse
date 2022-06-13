@@ -32,7 +32,7 @@ const products = [
         description: "Su alta practicidad hacen que la mesa plegable sea infaltable en cualquier hogar",
         price: "2.000",
         img: "https://media.istockphoto.com/photos/folding-camping-table-picture-id825301986?b=1&k=20&m=825301986&s=612x612&w=0&h=G7fjjFIQWRmo_SVa4z5H40Z_vre7ggqyNTFqURosStg=",
-        stock: 12,
+        stock: 0,
         category: "exterior",
     },
     {
@@ -46,7 +46,7 @@ const products = [
     },
 ];
 
-const getFetch = () => {
+export const getFetch = (id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(products);
@@ -54,4 +54,10 @@ const getFetch = () => {
     });
 };
 
-export default getFetch;
+export const getFetchOne = (id) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(products.find((prod) => prod.id === id));
+        }, 1000);
+    });
+};

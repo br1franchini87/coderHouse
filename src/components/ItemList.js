@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Item from "./Item";
-import getFetch from "../helpers/products";
+import { getFetch } from "../helpers/products";
 import { Container } from "react-bootstrap";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -10,7 +10,6 @@ const ItemList = () => {
     const [loading, setLoading] = useState(false);
 
     const { id } = useParams();
-    console.log(id);
 
     useEffect(() => {
         if (id) {
