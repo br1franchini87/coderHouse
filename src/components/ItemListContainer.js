@@ -23,7 +23,7 @@ const ItemListContainer = ({ greeting }) => {
                 {count}
                 <ItemList />
             </Container>
-            )
+            
         </div>
     );
 };
