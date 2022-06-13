@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ItemCount = ({ stock, onAdd, onDecrese }) => {
+const ItemCount = ({ stock, onAdd, initial }) => {
+    const [count, setCount] = useState(initial);
+
+    const decrese = () => {
+        if (count > 1) {
+            setCount(count - 1);
+        }
+    };
+
+    const sum = () => {
+        if (count < stock) {
+            setCount(count + 1);
+        }
+    };
+
     return (
         <div>
-            <button onClick={onAdd()}>+</button>
-            <button onClick={onDecrese()}>-</button>
-            <button disabled={stock === "0"}>agregar producto</button>
+            {count}
+            <button onClick={sum}>+</button>
+            <button onClick={decrese}>-</button>
+            <button disabled={stock === "0"} onClick={() => onAdd(count)}>
+                agregar producto
+            </button>
         </div>
     );
 };
