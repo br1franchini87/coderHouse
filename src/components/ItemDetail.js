@@ -1,8 +1,15 @@
 import React from "react";
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ product }) => {
     const { img, title, stock, description, price } = product;
+
+    const initial = 1;
+
+    const onAdd = (count) => {
+        console.log(count);
+    };
 
     return (
         <div>
@@ -36,9 +43,7 @@ const ItemDetail = ({ product }) => {
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item style={{ margin: "0 auto" }}>
-                                <Button className='btn-sm btn btn-outline-info' type='button' disabled={stock === 0}>
-                                    Agregar al carrito
-                                </Button>
+                                <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>

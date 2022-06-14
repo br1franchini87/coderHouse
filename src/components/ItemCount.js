@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 
 const ItemCount = ({ stock, onAdd, initial }) => {
     const [count, setCount] = useState(initial);
@@ -17,12 +18,19 @@ const ItemCount = ({ stock, onAdd, initial }) => {
 
     return (
         <div>
-            {count}
-            <button onClick={sum}>+</button>
-            <button onClick={decrese}>-</button>
-            <button disabled={stock === "0"} onClick={() => onAdd(count)}>
-                agregar producto
-            </button>
+            <ListGroup.Item style={{ margin: "0 auto", textAlign: "center" }}>
+                <Button onClick={decrese} className='btn-sm btn btn-outline-info'>
+                    -
+                </Button>
+                {count}
+                <Button onClick={sum} className='btn-sm btn btn-outline-info'>
+                    +
+                </Button>
+                <br></br>
+                <Button onClick={() => onAdd(count)} className='btn-sm btn btn-outline-info' style={{ marginTop: "1rem" }} type='button' disabled={stock === 0}>
+                    Agregar al carrito
+                </Button>
+            </ListGroup.Item>
         </div>
     );
 };
