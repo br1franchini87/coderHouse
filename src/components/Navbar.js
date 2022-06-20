@@ -22,9 +22,9 @@ const NavBar = () => {
                                 Interior
                             </NavLink>
                         </Nav>
-                        <Nav.Link className='ms-auto'>
+                        <NavLink to='/cart' className='ms-auto'>
                             <CartWidget />
-                        </Nav.Link>
+                        </NavLink>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

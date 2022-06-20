@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Row, Col, Image, ListGroup, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { CartContext } from "./cartContext";
 
 const ItemDetail = ({ product }) => {
     const { img, title, stock, description, price } = product;
+
+    const { cart, addToCart } = useContext(CartContext);
 
     const initial = 1;
 
@@ -14,8 +17,10 @@ const ItemDetail = ({ product }) => {
     const onAdd = (count) => {
         console.log(count);
         setInutType('input')
+        /*  console.log(count); */
+        addToCart({ ...product, cantidad: count });
     };
-
+    console.log(cart);
     return (
         <div>
             <Row style={{ flexDirection: "column" }}>
