@@ -1,14 +1,19 @@
-import React from "react";
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Row, Col, Image, ListGroup, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
+
 
 const ItemDetail = ({ product }) => {
     const { img, title, stock, description, price } = product;
 
     const initial = 1;
 
+    const [inputType, setInutType] = useState('button')
+
     const onAdd = (count) => {
         console.log(count);
+        setInutType('input')
     };
 
     return (
@@ -43,7 +48,11 @@ const ItemDetail = ({ product }) => {
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item style={{ margin: "0 auto" }}>
-                                <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
+                                {inputType === 'button' ? 
+                                 <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
+                                 : 
+                                <Link to='/cart'> <button type="button" class="btn btn-sm btn-outline-success">Ir al carrito</button></Link>
+                            }
                             </ListGroup.Item>
                         </ListGroup>
                     </Card>
