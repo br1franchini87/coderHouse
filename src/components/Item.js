@@ -12,7 +12,7 @@ const Item = ({ products }) => {
                         <img src={singleProduct.img} alt='foto producto' style={{ width: "200px", height: "150px", margin: "0 auto" }} />
                         <div className='card-body'>
                             <p>{singleProduct.description}</p>
-                            <h5 className='card-title'>${singleProduct.price}</h5>
+                            <h5 className='card-title'><strong>${singleProduct.price}</strong></h5>
                         </div>
                         <div className='gap-1 text-center mb-3'>
                             <Link to={`/detalle/${singleProduct.id}`}>

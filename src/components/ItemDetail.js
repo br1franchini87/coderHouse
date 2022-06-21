@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { CartContext } from "./cartContext";
 
 const ItemDetail = ({ product }) => {
+    
     const { img, title, stock, description, price } = product;
 
     const { cart, addToCart } = useContext(CartContext);
@@ -15,15 +16,12 @@ const ItemDetail = ({ product }) => {
     const [inputType, setInutType] = useState('button')
 
     const onAdd = (count) => {
-        console.log(count);
         setInutType('input')
-        /*  console.log(count); */
         addToCart({ ...product, cantidad: count });
     };
-    console.log(cart);
     return (
         <div>
-            <Row style={{ flexDirection: "column" }}>
+            <Row style={{ flexDirection: "column", margin:'0' }}>
                 <Col md={3}>
                     <Image src={img} alt={title} fluid />
                 </Col>
@@ -52,7 +50,7 @@ const ItemDetail = ({ product }) => {
                                     <Col>{stock > 0 ? <h6 style={{ color: "lightGreen", fontWeight: "bold" }}>Disponible</h6> : <h6 style={{ color: "red" }}>Sin Stock!</h6>}</Col>
                                 </Row>
                             </ListGroup.Item>
-                            <ListGroup.Item style={{ margin: "0 auto" }}>
+                            <ListGroup.Item style={{ margin: "0 auto", minHeight:'120px' }}>
                                 {inputType === 'button' ? 
                                  <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
                                  : 

@@ -7,10 +7,14 @@ const Cart = () => {
     return (
         <div>
             <Container>
-            {cart.map((chola) => (
-                <h1>{chola.title}</h1>
+        <h4>Carrito</h4>
+            {cart.map((cartItem) => (
+                <div>
+                    <h3>{cartItem.title}</h3>
+                    <h4> <strong>$ </strong>{cartItem.price}</h4>
+                </div>
             ))}
-            <button onClick={removeCart}>vaciar</button>
+            <button className="btn btn-outline-danger btn-sm" onClick={removeCart}>Remover todo</button>
             </Container>
         </div>
     );
