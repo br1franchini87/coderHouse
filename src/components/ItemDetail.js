@@ -3,7 +3,7 @@ import { Row, Col, Image, ListGroup, Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "./cartContext";
+import { CartContext } from "./CartContext";
 
 const ItemDetail = ({ product }) => {
     
@@ -47,7 +47,7 @@ const ItemDetail = ({ product }) => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>Status:</Col>
-                                    <Col>{stock > 0 ? <h6 style={{ color: "lightGreen", fontWeight: "bold" }}>Disponible</h6> : <h6 style={{ color: "red" }}>Sin Stock!</h6>}</Col>
+                                    <Col>{stock > 0 ? <h6 style={{ color: "limegreen", fontWeight: "bold" }}>Disponible</h6> : <h6 style={{ color: "red" }}>Sin Stock!</h6>}</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item style={{ margin: "0 auto", minHeight:'120px' }}>

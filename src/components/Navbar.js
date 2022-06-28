@@ -1,13 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import Logo from "../assets/1.svg";
+import { CartContext } from "./CartContext";
 
 const NavBar = () => {
+
+  const {iconCart, cart } = useContext(CartContext);
+
   return (
     <header>
       <Navbar bg="light" variant="light" expand="lg">
+     
         <Container>
           <Link to="/">
             <img style={{ width: "40px", marginRight: "1rem" }} src={Logo} />
@@ -28,6 +33,11 @@ const NavBar = () => {
             <NavLink to="/cart" className="ms-auto">
               <CartWidget />
             </NavLink>
+            {cart.length < 1 ? 
+            <p style={{borderRadius:'50%', backgroundColor:'gold', width:'2%', textAlign:'center', display:'none'}}>{iconCart()}</p>
+            :
+            <p style={{borderRadius:'50%', backgroundColor:'gold', width:'2%', textAlign:'center'}}>{iconCart()}</p>
+             }
           </Navbar.Collapse>
         </Container>
       </Navbar>

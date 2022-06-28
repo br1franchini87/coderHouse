@@ -7,8 +7,7 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div>
             <Container>
-                <h4 className='mt-3'>{greeting}</h4>
-
+                <h4 style={{textAlign:'center'}} className='mt-3'>{greeting}</h4>
                 <ItemList />
             </Container>
         </div>

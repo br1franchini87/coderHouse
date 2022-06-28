@@ -18,7 +18,7 @@ const ItemCount = ({ stock, onAdd, initial }) => {
 
   return (
     <div>
-      <ListGroup.Item style={{ margin: "0 auto", textAlign: "center" }}>
+      <ListGroup.Item disabled={stock === 0} style={stock ===0 ? {opacity:'.5', margin: "0 auto", textAlign: "center"}: {opacity:'1', margin: "0 auto", textAlign: "center"}}>
         <Button onClick={decrese} className="btn-sm btn btn-outline-info">
           -
         </Button>
@@ -27,7 +27,7 @@ const ItemCount = ({ stock, onAdd, initial }) => {
           +
         </Button>
         <br></br>
-        <Button onClick={() => onAdd(count)} className="btn-sm btn btn-outline-info" style={{ marginTop: "1rem" }} type="button" disabled={stock === 0}>
+        <Button onClick={() => onAdd(count)} className="btn-sm btn btn-outline-info" style={{ marginTop: "1rem" }} type="button">
           Agregar al carrito
         </Button>
       </ListGroup.Item>
