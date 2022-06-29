@@ -1,4 +1,4 @@
-const products = [
+/* const products = [
     {
         id: "1",
         title: "Mesa Rustica",
@@ -61,3 +61,4 @@ export const getFetchOne = (id) => {
         }, 1000);
     });
 };
+ */
