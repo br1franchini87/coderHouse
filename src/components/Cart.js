@@ -17,7 +17,7 @@ const Cart = () => {
           ))
         )}
         <h5 style={cart < 1 ? {display:'none'}: {display:'block'}}>precio total: $ {priceTotal()}</h5>
-        <button className="btn btn-outline-info btn-sm" onClick={removeCart} style={cart < 1 ?{display:'none'}: {display:'block'}}>
+        <button className="btn btn-outline-danger btn-sm" onClick={removeCart} style={cart < 1 ?{display:'none'}: {display:'block'}}>
           Vaciar carrito
         </button>
       </Container>

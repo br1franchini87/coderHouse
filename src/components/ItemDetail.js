@@ -54,7 +54,7 @@ const ItemDetail = ({ product }) => {
                                 {inputType === 'button' ? 
                                  <ItemCount initial={initial} stock={stock} onAdd={onAdd} />
                                  : 
-                                <Link to='/cart'> <button type="button" class="btn btn-sm btn-outline-success">Ir al carrito</button></Link>
+                                <Link to='/cart'> <button type="button" className="btn-sm btn btn-outline-info">Ir al carrito</button></Link>
                             }
                             </ListGroup.Item>
                         </ListGroup>

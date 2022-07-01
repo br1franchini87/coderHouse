@@ -7,7 +7,7 @@ import { collection, getFirestore, getDocs, query, where } from "firebase/firest
 
 const ItemList = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
@@ -17,22 +17,22 @@ const ItemList = () => {
       const queryCollection = collection(db, "products");
       const queryCollectionFilter = query(queryCollection, where("category", "==", id));
       getDocs(queryCollectionFilter)
-        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))))
+        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
         .catch((error) => console.log(error))
-        .finally(setLoading(true));
+        .finally(setLoading(false));
     } else {
       const db = getFirestore();
       const queryCollection = collection(db, "products");
       getDocs(queryCollection)
-        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))))
+        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
         .catch((error) => console.log(error))
-        .finally(setLoading(true));
+        .finally(setLoading(false));
     }
   }, [id]);
 
   return (
     <div>
-      {!loading ? (
+      {loading ? (
         <Container style={{ display: "flex", justifyContent: "center" }}>
           <Spinner animation="border" role="status" />
         </Container>
