@@ -34,7 +34,7 @@ const NavBar = () => {
               <CartWidget />
             </NavLink>
             {cart.length < 1 ? 
-            <p style={{borderRadius:'50%', backgroundColor:'gold', width:'2%', textAlign:'center', display:'none'}}>{iconCart()}</p>
+            ''
             :
             <p style={{borderRadius:'50%', backgroundColor:'gold', width:'2%', textAlign:'center'}}>{iconCart()}</p>
              }
