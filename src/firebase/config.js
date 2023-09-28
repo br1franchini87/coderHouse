@@ -5,17 +5,14 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD8DX7QmMDvAMbk8Xlgmfzgx7SoqiiFZF4",
-  authDomain: "ecommercefranchini.firebaseapp.com",
-  projectId: "ecommercefranchini",
-  storageBucket: "ecommercefranchini.appspot.com",
-  messagingSenderId: "1088481489352",
-  appId: "1:1088481489352:web:9367c16680bb1d4027d0fd"
+    apiKey: "AIzaSyC8iLzcWCyjf31F1NERddlDpUhmRCwCxyM",
+    authDomain: "ecommercefranchini-4e94a.firebaseapp.com",
+    projectId: "ecommercefranchini-4e94a",
+    storageBucket: "ecommercefranchini-4e94a.appspot.com",
+    messagingSenderId: "325827082388",
+    appId: "1:325827082388:web:b58d16c99eefeaea895c81",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-export const getFirestoreApp = () => {
-    return app
-}
+initializeApp(firebaseConfig);
+// esto esta al pedo

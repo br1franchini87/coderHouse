@@ -6,41 +6,41 @@ import { useParams } from "react-router-dom";
 import { collection, getFirestore, getDocs, query, where } from "firebase/firestore";
 
 const ItemList = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  const { id } = useParams();
+    const { id } = useParams();
 
-  useEffect(() => {
-    if (id) {
-      const db = getFirestore();
-      const queryCollection = collection(db, "products");
-      const queryCollectionFilter = query(queryCollection, where("category", "==", id));
-      getDocs(queryCollectionFilter)
-        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
-        .catch((error) => console.log(error))
-        .finally(setLoading(false));
-    } else {
-      const db = getFirestore();
-      const queryCollection = collection(db, "products");
-      getDocs(queryCollection)
-        .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
-        .catch((error) => console.log(error))
-        .finally(setLoading(false));
-    }
-  }, [id]);
+    useEffect(() => {
+        if (id) {
+            const db = getFirestore();
+            const queryCollection = collection(db, "items");
+            const queryCollectionFilter = query(queryCollection, where("category", "==", id));
+            getDocs(queryCollectionFilter)
+                .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
+                .catch((error) => console.log(error))
+                .finally(setLoading(false));
+        } else {
+            const db = getFirestore();
+            const queryCollection = collection(db, "items");
+            getDocs(queryCollection)
+                .then((data) => setProducts(data.docs.map((item) => ({ id: item.id, ...item.data() }))), setLoading(true))
+                .catch((error) => console.log(error))
+                .finally(setLoading(false));
+        }
+    }, [id]);
 
-  return (
-    <div>
-      {loading ? (
-        <Container style={{ display: "flex", justifyContent: "center" }}>
-          <Spinner animation="border" role="status" />
-        </Container>
-      ) : (
-        <Item products={products} />
-      )}
-    </div>
-  );
+    return (
+        <div>
+            {loading ? (
+                <Container style={{ display: "flex", justifyContent: "center" }}>
+                    <Spinner animation='border' role='status' />
+                </Container>
+            ) : (
+                <Item products={products} />
+            )}
+        </div>
+    );
 };
 
 export default ItemList;
